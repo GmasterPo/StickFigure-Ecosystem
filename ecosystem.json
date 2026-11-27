@@ -1,0 +1,382 @@
+{
+  "name": "StickFigure Animation Ecosystem",
+  "version": "1.0.0",
+  "generated": "2026-11-26",
+  "description": "Reusable stick-figure animation assets and JavaScript systems for HTML5 Canvas/SVG games: combat with frame data, platformer movement, verlet physics, and a shared skeletal animation engine.",
+  "license": "MIT",
+  "licenseFile": "StickFigure-Animation-Engine/LICENSE",
+  "repositoryUrls": {
+    "pattern": "https://github.com/GmasterPo/<Repository>",
+    "note": "Each repository is published under the GmasterPo account. Paths elsewhere in this file are relative to the root of the repository named by their first segment.",
+    "index": "https://raw.githubusercontent.com/GmasterPo/StickFigure-Ecosystem/main/ecosystem.json"
+  },
+  "conventions": {
+    "rig": "stick-humanoid",
+    "bones": 18,
+    "angleUnit": "degrees (deltas on top of BASIC_POSE)",
+    "coordinateSystem": "y down; hip at y=0; feet near y=+44; root.y negative is up",
+    "clipFormat": "stickfigure-clip",
+    "clipVersion": "1.0",
+    "manifestFormat": "stickfigure-manifest",
+    "manifestVersion": "1.0",
+    "atlasFormat": "stickfigure-atlas",
+    "atlasVersion": "1.0",
+    "bake": {
+      "fps": 20,
+      "cell": 128,
+      "scale": 0.7,
+      "originX": 64,
+      "originY": 82,
+      "columns": 8
+    },
+    "dependencies": "none",
+    "moduleSystem": "ESM"
+  },
+  "totals": {
+    "repositories": 4,
+    "clips": 85,
+    "totalDuration": 60.74,
+    "spriteAtlases": 25
+  },
+  "repositories": [
+    {
+      "name": "StickFigure-Animation-Engine",
+      "url": "https://github.com/GmasterPo/StickFigure-Animation-Engine",
+      "path": "StickFigure-Animation-Engine",
+      "role": "Foundation: rig, clip format, state machine, blending, procedural motion, Canvas/SVG renderers, sprite sheets, asset baking",
+      "license": "MIT",
+      "skeleton": "stick-humanoid",
+      "manifest": "StickFigure-Animation-Engine/manifest.json",
+      "entryPoint": "StickFigure-Animation-Engine/src/index.js",
+      "bundle": "StickFigure-Animation-Engine/dist/stickfigure-engine.mjs",
+      "clips": 6,
+      "totalDuration": 6.52,
+      "categories": [
+        {
+          "id": "locomotion",
+          "count": 3
+        },
+        {
+          "id": "air",
+          "count": 1
+        },
+        {
+          "id": "gestures",
+          "count": 1
+        },
+        {
+          "id": "combat",
+          "count": 1
+        }
+      ],
+      "spriteAtlases": 4,
+      "documentation": [
+        "StickFigure-Animation-Engine/documentation/getting-started.md",
+        "StickFigure-Animation-Engine/documentation/api.md",
+        "StickFigure-Animation-Engine/documentation/animations.md",
+        "StickFigure-Animation-Engine/documentation/integration.md",
+        "StickFigure-Animation-Engine/documentation/catalog.md"
+      ],
+      "examples": [
+        "StickFigure-Animation-Engine/examples/state-machine.html",
+        "StickFigure-Animation-Engine/examples/renderers.html"
+      ],
+      "testCommand": "cd StickFigure-Animation-Engine && node tests/smoke.mjs",
+      "serveCommand": "cd StickFigure-Animation-Engine && npm start",
+      "standalone": true,
+      "clipIds": [
+        "idle-breathe",
+        "walk-loop",
+        "run-loop",
+        "jump-tuck",
+        "punch-straight",
+        "wave-gesture"
+      ]
+    },
+    {
+      "name": "StickFigure-Combat",
+      "url": "https://github.com/GmasterPo/StickFigure-Combat",
+      "path": "StickFigure-Combat",
+      "role": "Combat clips with frame data, hitboxes and a two-fighter runtime with AI",
+      "license": "MIT",
+      "skeleton": "stick-humanoid",
+      "manifest": "StickFigure-Combat/manifest.json",
+      "entryPoint": "StickFigure-Combat/src/index.js",
+      "vendoredEngine": "StickFigure-Combat/vendor/stickfigure-engine.mjs",
+      "clips": 44,
+      "totalDuration": 29.45,
+      "categories": [
+        {
+          "id": "punches",
+          "count": 6
+        },
+        {
+          "id": "kicks",
+          "count": 6
+        },
+        {
+          "id": "combos",
+          "count": 4
+        },
+        {
+          "id": "blocks",
+          "count": 3
+        },
+        {
+          "id": "dodges",
+          "count": 3
+        },
+        {
+          "id": "grapples",
+          "count": 2
+        },
+        {
+          "id": "throws",
+          "count": 2
+        },
+        {
+          "id": "reactions",
+          "count": 4
+        },
+        {
+          "id": "ko",
+          "count": 1
+        },
+        {
+          "id": "weapons",
+          "count": 4
+        },
+        {
+          "id": "air",
+          "count": 3
+        },
+        {
+          "id": "finishers",
+          "count": 2
+        },
+        {
+          "id": "transitions",
+          "count": 4
+        }
+      ],
+      "spriteAtlases": 13,
+      "documentation": [
+        "StickFigure-Combat/documentation/getting-started.md",
+        "StickFigure-Combat/documentation/api.md",
+        "StickFigure-Combat/documentation/animations.md",
+        "StickFigure-Combat/documentation/integration.md",
+        "StickFigure-Combat/documentation/catalog.md"
+      ],
+      "examples": [
+        "StickFigure-Combat/examples/fight-demo.html",
+        "StickFigure-Combat/examples/move-browser.html"
+      ],
+      "testCommand": "cd StickFigure-Combat && node tests/smoke.mjs",
+      "serveCommand": "cd StickFigure-Combat && npm start",
+      "standalone": true,
+      "clipIds": [
+        "punch-jab",
+        "punch-cross",
+        "punch-hook",
+        "punch-uppercut",
+        "punch-backfist",
+        "punch-overhand",
+        "kick-front",
+        "kick-roundhouse",
+        "kick-side",
+        "kick-low-sweep",
+        "kick-knee",
+        "kick-axe",
+        "combo-jab-cross",
+        "combo-triple-strike",
+        "combo-air-rake",
+        "combo-finisher",
+        "block-high",
+        "block-low",
+        "block-parry",
+        "dodge-backdash",
+        "dodge-duck",
+        "dodge-weave",
+        "grapple-reach",
+        "grapple-grab",
+        "throw-over-shoulder",
+        "throw-slam",
+        "hit-reaction-light",
+        "hit-reaction-heavy",
+        "knockdown-fall",
+        "knockdown-getup",
+        "knockout-ko",
+        "weapon-staff-strike",
+        "weapon-sword-slash",
+        "weapon-spear-thrust",
+        "weapon-guard",
+        "air-jump-kick",
+        "air-dive-kick",
+        "air-slash",
+        "finisher-spin-kick",
+        "finisher-uppercut-launch",
+        "combat-idle",
+        "combat-stance-enter",
+        "combat-stance-exit",
+        "combat-recover-stance"
+      ]
+    },
+    {
+      "name": "StickFigure-Movement",
+      "url": "https://github.com/GmasterPo/StickFigure-Movement",
+      "path": "StickFigure-Movement",
+      "role": "Movement clips plus a platformer controller, level format and input helper",
+      "license": "MIT",
+      "skeleton": "stick-humanoid",
+      "manifest": "StickFigure-Movement/manifest.json",
+      "entryPoint": "StickFigure-Movement/src/index.js",
+      "vendoredEngine": "StickFigure-Movement/vendor/stickfigure-engine.mjs",
+      "clips": 21,
+      "totalDuration": 15.42,
+      "categories": [
+        {
+          "id": "locomotion",
+          "count": 8
+        },
+        {
+          "id": "air",
+          "count": 5
+        },
+        {
+          "id": "ground",
+          "count": 2
+        },
+        {
+          "id": "climb",
+          "count": 6
+        }
+      ],
+      "spriteAtlases": 4,
+      "documentation": [
+        "StickFigure-Movement/documentation/getting-started.md",
+        "StickFigure-Movement/documentation/api.md",
+        "StickFigure-Movement/documentation/animations.md",
+        "StickFigure-Movement/documentation/integration.md",
+        "StickFigure-Movement/documentation/catalog.md"
+      ],
+      "examples": [
+        "StickFigure-Movement/examples/platformer.html",
+        "StickFigure-Movement/examples/locomotion-blend.html"
+      ],
+      "testCommand": "cd StickFigure-Movement && node tests/smoke.mjs",
+      "serveCommand": "cd StickFigure-Movement && npm start",
+      "standalone": true,
+      "clipIds": [
+        "idle",
+        "walk",
+        "walk-backpedal",
+        "run",
+        "sprint",
+        "turn-in-place",
+        "skid-stop",
+        "crouch-idle",
+        "jump-start",
+        "jump-rise",
+        "jump-fall",
+        "land-soft",
+        "land-hard",
+        "slide",
+        "roll",
+        "climb",
+        "wall-slide",
+        "wall-jump",
+        "parkour-vault",
+        "ledge-hang",
+        "ledge-climb"
+      ]
+    },
+    {
+      "name": "StickFigure-Physics",
+      "url": "https://github.com/GmasterPo/StickFigure-Physics",
+      "path": "StickFigure-Physics",
+      "role": "Verlet ragdolls, knockback, balance analysis, fall reactions and recovery",
+      "license": "MIT",
+      "skeleton": "stick-humanoid",
+      "manifest": "StickFigure-Physics/manifest.json",
+      "entryPoint": "StickFigure-Physics/src/index.js",
+      "vendoredEngine": "StickFigure-Physics/vendor/stickfigure-engine.mjs",
+      "clips": 14,
+      "totalDuration": 9.35,
+      "categories": [
+        {
+          "id": "impacts",
+          "count": 5
+        },
+        {
+          "id": "falls",
+          "count": 4
+        },
+        {
+          "id": "recovery",
+          "count": 3
+        },
+        {
+          "id": "balance",
+          "count": 2
+        }
+      ],
+      "spriteAtlases": 4,
+      "documentation": [
+        "StickFigure-Physics/documentation/getting-started.md",
+        "StickFigure-Physics/documentation/api.md",
+        "StickFigure-Physics/documentation/animations.md",
+        "StickFigure-Physics/documentation/integration.md",
+        "StickFigure-Physics/documentation/catalog.md"
+      ],
+      "examples": [
+        "StickFigure-Physics/examples/ragdoll-playground.html",
+        "StickFigure-Physics/examples/balance-lab.html"
+      ],
+      "testCommand": "cd StickFigure-Physics && node tests/smoke.mjs",
+      "serveCommand": "cd StickFigure-Physics && npm start",
+      "standalone": true,
+      "clipIds": [
+        "knockback-slide",
+        "knockback-air",
+        "tumble-fall",
+        "fall-back",
+        "fall-forward",
+        "ground-bounce",
+        "wall-impact",
+        "getup-prone",
+        "getup-kneel",
+        "recovery-roll",
+        "balance-wobble",
+        "stumble-step",
+        "drop-land",
+        "environmental-push"
+      ]
+    }
+  ],
+  "examples": [
+    "StickFigure-Animation-Engine/examples/state-machine.html",
+    "StickFigure-Animation-Engine/examples/renderers.html",
+    "StickFigure-Combat/examples/fight-demo.html",
+    "StickFigure-Combat/examples/move-browser.html",
+    "StickFigure-Movement/examples/platformer.html",
+    "StickFigure-Movement/examples/locomotion-blend.html",
+    "StickFigure-Physics/examples/ragdoll-playground.html",
+    "StickFigure-Physics/examples/balance-lab.html"
+  ],
+  "quickStart": {
+    "runTests": "cd <Repository> && node tests/smoke.mjs",
+    "runExamples": "cd <Repository> && npm start",
+    "buildAssets": "cd <Repository> && npm run build",
+    "syncVendoredEngine": "cd StickFigure-{Combat,Movement,Physics} && npm run sync-vendor"
+  },
+  "usage": {
+    "search": "searchManifest(manifest, { text, action, style, source, license, tag, format, minComplexity, maxComplexity })",
+    "playClip": "AnimationClip.fromJSON(json).sample(time)",
+    "stateMachine": "new AnimationStateMachine({ clips, initial, states, parameters })",
+    "render": "new CanvasRenderer(canvas).draw(pose, { x, y, scale, facing })",
+    "combat": "new CombatSession({ fighters: [p1, p2] }).update(dt)",
+    "movement": "new PlatformerController({ level }).update(dt, input)",
+    "physics": "new Ragdoll({ world }).step(dt) → ragdoll.toPose()"
+  },
+  "attribution": "All animation data, SVG posters and sprite sheets are original work authored in-repo and released under the MIT license. No third-party assets are included."
+}
