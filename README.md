@@ -142,8 +142,17 @@ All four are published as independent repositories under the [GmasterPo](https:/
 - https://github.com/GmasterPo/StickFigure-Movement
 - https://github.com/GmasterPo/StickFigure-Physics
 
-This repository holds only the index — this README and [`ecosystem.json`](ecosystem.json). Each of the four can be cloned and
-run on its own; nothing here is required to use them.
+This repository holds the index — this README, [`ecosystem.json`](ecosystem.json) and the `tools/` check that keeps them
+consistent. Each of the four can be cloned and run on its own; nothing here is required to use them.
+
+`tools/check-sync.mjs` is a drift check for a workspace with all five repositories cloned side by side: it verifies that the
+workspace-root `README.md` and `ecosystem.json` are links to these files rather than copies, that the manifest totals still
+agree with the per-repository counts, and repairs broken links.
+
+```bash
+node tools/check-sync.mjs          # exit 1 on drift
+node tools/check-sync.mjs --fix    # relink the workspace root
+```
 
 ## Licensing
 
